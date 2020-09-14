@@ -33,6 +33,7 @@ mod rpc_apis;
 use app_dirs::AppInfo;
 
 pub const APP_INFO: AppInfo = AppInfo { name: "prandchain", author: "RandChain" };
+// TODO:
 pub const PROTOCOL_VERSION: u32 = 70_014;
 pub const PROTOCOL_MINIMUM: u32 = 70_001;
 pub const USER_AGENT: &'static str = "prandchain";
