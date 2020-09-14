@@ -85,16 +85,6 @@ args:
         help: Execute COMMAND when the best block changes (%s in COMMAND is replaced by the block hash).
         takes_value: true
         value_name: COMMAND
-    - verification-level:
-        long: verification-level
-        help: Sets the Blocks verification level to full (default), header (scripts are not verified), or none (no verification at all).
-        takes_value: true
-        value_name: LEVEL
-    - verification-edge:
-        long: verification-edge
-        help: Non-default verification-level is applied until a block with given hash is met.
-        takes_value: true
-        value_name: BLOCK
 subcommands:
     - import:
         about: Import blocks from a Bitcoin Core database.

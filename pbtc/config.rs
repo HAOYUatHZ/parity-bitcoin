@@ -126,21 +126,9 @@ pub fn parse(matches: &clap::ArgMatches) -> Result<Config, String> {
 		&ConsensusFork::BitcoinCore => services.with_witness(true),
 	};
 
-	let verification_level = match matches.value_of("verification-level") {
-		Some(s) if s == "full" => VerificationLevel::Full,
-		Some(s) if s == "header" => VerificationLevel::Header,
-		Some(s) if s == "none" => VerificationLevel::NoVerification,
-		Some(s) => return Err(format!("Invalid verification level: {}", s)),
-		None => VerificationLevel::Full,
-	};
+	let verification_level = VerificationLevel::Full;
 
-	let verification_edge = match matches.value_of("verification-edge") {
-		Some(s) if verification_level != VerificationLevel::Full => {
-			let edge: H256 = s.parse().map_err(|_| "Invalid verification edge".to_owned())?;
-			edge.reversed()
-		},
-		_ => network.default_verification_edge(),
-	};
+	let verification_edge = network.default_verification_edge();
 
 	let config = Config {
 		quiet: quiet,
