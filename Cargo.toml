@@ -2,7 +2,7 @@
 name = "prandchain"
 version = "0.1.0"
 license = "GPL-3.0"
-authors = ["Parity Technologies <admin@parity.io>", "Haoyu Lin <chris.haoyul@gmail.com>"]]
+authors = ["Parity Technologies <admin@parity.io>", "Haoyu Lin <chris.haoyul@gmail.com>"]
 description = "RandChain client."
 
 [dependencies]
