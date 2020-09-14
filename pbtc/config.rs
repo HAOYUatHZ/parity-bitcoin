@@ -94,8 +94,6 @@ pub fn parse(matches: &clap::ArgMatches) -> Result<Config, String> {
 	let seednodes: Vec<String> = match matches.value_of("seednode") {
 		Some(s) => vec![s.parse().map_err(|_| "Invalid seednode".to_owned())?],
 		None => match (network, &consensus.fork) {
-			(Network::Mainnet, &ConsensusFork::BitcoinCash(_)) => bitcoin_cash_seednodes().into_iter().map(Into::into).collect(),
-			(Network::Testnet, &ConsensusFork::BitcoinCash(_)) => bitcoin_cash_testnet_seednodes().into_iter().map(Into::into).collect(),
 			(Network::Mainnet, _) => mainnet_seednodes().into_iter().map(Into::into).collect(),
 			(Network::Testnet, _) => testnet_seednodes().into_iter().map(Into::into).collect(),
 			(Network::Other(_), _) | (Network::Regtest, _) | (Network::Unitest, _) => Vec::new(),
