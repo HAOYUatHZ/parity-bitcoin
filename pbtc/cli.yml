@@ -85,16 +85,3 @@ args:
         help: Execute COMMAND when the best block changes (%s in COMMAND is replaced by the block hash).
         takes_value: true
         value_name: COMMAND
-subcommands:
-    - import:
-        about: Import blocks from a Bitcoin Core database.
-        args:
-            - PATH:
-                required: true
-                help: Path of the Bitcoin Core database.
-    - rollback:
-        about: Rollback the database to given canonical-chain block.
-        args:
-            - BLOCK:
-                required: true
-                help: Either block hash, or block number.
